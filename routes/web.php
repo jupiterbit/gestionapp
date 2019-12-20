@@ -11,31 +11,12 @@
 |
 */
 
-$portfolio=[    
-    ['title'=>'Proyecto #1'],
-    ['title'=>'Proyecto #2'],
-    ['title'=>'Proyecto #3'],
-    ['title'=>'Proyecto #4'],    
-];
-
 Route::view('/','home')->name('home');
 Route::view('/about','about')->name('about');
-Route::view('/portfolio','portfolio',compact('portfolio'))->name('portfolio');
+Route::get('/portfolio','PortfolioController@index')->name('portfolio');
 Route::view('/contact','contact')->name('contact');
 
-
-Route::get('alpha', function () {
-    $nombre="Edson";
-    //return view('home')->with('nombre',$nombre);
-    //return view('home')->with(['nombre'=>$nombre]);
-    return view('home', ['nombre'=>$nombre]);
-    //return view('home', compact('nombre'));
-})->name('inicio');
-
-Route::get('/contacto', function () {
-    return "Hola desde contacto";
-});
-
-Route::get('/contacto/{nombre}', function ($nombre) {
-    return "Hola $nombre";
-});
+//Route::resource('/portfolio','PortfolioController');
+//Route::resource('proyectos','PortfolioApiController');
+//Route::resource('/portfolio','PortfolioController')->only(['update','destroy']);
+//Route::resource('/portfolio','PortfolioController')->except(['update','destroy']);
