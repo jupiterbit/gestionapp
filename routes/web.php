@@ -39,7 +39,3 @@ Route::get('/contacto', function () {
 Route::get('/contacto/{nombre}', function ($nombre) {
     return "Hola $nombre";
 });
-
-
-
-
