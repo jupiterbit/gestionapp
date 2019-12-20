@@ -1,4 +1,22 @@
 
+  <!--DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>Mensaje Recibido</title>
+  </head>
+  <body>    
+      
+      <p>Recibiste un mensaje de: {{-- $msg['name']}} - {{$msg['email'] --}} </p>
+      <p><strong>Asunto:</strong> {{--$msg['subject']--}} </p>
+      <p><strong>Contenido:</strong> {{--$msg['content']--}} </p>
+  
+  </body>
+  </html-->
+
+
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 <head>
@@ -387,10 +405,7 @@ table{
                             </td>
                           </tr>
 
-
-
-                          <!DOCTYPE html>
-
+                        
                           <tr>
                             <td style="padding-top: 20px; padding-right: 10px;">
                               <a href="#"><img src="images/work-3.jpg" alt="" style="width: 100%; max-width: 600px; height: auto; margin: auto; display: block;"></a>
