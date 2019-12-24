@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Project;
 use Illuminate\Http\Request;
+use App\Http\Requests\SaveProjectRequest;
 
 class ProjectController extends Controller
 {
@@ -21,6 +22,27 @@ class ProjectController extends Controller
         return view('projects.index',[
             'projects'=> Project::latest()->paginate()
         ]);
+    }
+
+    public function edit(Project $project)
+    {
+              
+        return view('projects.edit',[
+            'project'=> $project
+        ]);
+    }
+    public function update(Project $project, SaveProjectRequest $request)
+    {
+        /*
+        $project->update([
+            'title'=>request('title'),
+            'url'=>request('url'),
+            'description'=>request('description'),
+        ]);
+        */
+        $project->update($request->validated());
+              
+        return redirect()->route('projects.show',$project);
     }
 
    
@@ -42,7 +64,7 @@ class ProjectController extends Controller
         return view('projects.create');
     }
 
-    public function store() 
+    public function store(SaveProjectRequest $request) 
     {           
         /*
         Project::create([
@@ -52,12 +74,15 @@ class ProjectController extends Controller
             ]);
         Project::create(request()->all());
         */
+        /*
         $fields=request()->validate([
             'title'=>'required|min:3',
             'url'=>'required',
             'description'=>'required|min:3'
         ]);
         Project::create($fields);
+        */
+        Project::create($request->validated());
         
         return redirect()->route('projects.index');
     }
