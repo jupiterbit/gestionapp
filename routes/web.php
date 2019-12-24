@@ -13,11 +13,15 @@
 
 Route::view('/','home')->name('home');
 Route::view('/about','about')->name('about');
-Route::get('/portfolio','PortfolioController@index')->name('portfolio');
-Route::view('/contact','contact')->name('contact');
-Route::post('contact','MessagesController@store')->name('contact');
+Route::get('/portfolio','ProjectController@index')->name('projects.index');
+Route::get('/portfolio/crear','ProjectController@create')->name('projects.create');
+Route::post('/portfolio','ProjectController@store')->name('projects.store');
+Route::get('/portfolio/{project}','ProjectController@show')->name('projects.show');
 
-//Route::resource('/portfolio','PortfolioController');
+Route::view('/contact','contact')->name('contact');
+Route::post('contact','MessageController@store')->name('messages.store');
+
+//Route::resource('/portfolio','ProjectController');
 //Route::resource('proyectos','PortfolioApiController');
-//Route::resource('/portfolio','PortfolioController')->only(['update','destroy']);
-//Route::resource('/portfolio','PortfolioController')->except(['update','destroy']);
+//Route::resource('/portfolio','ProjectController')->only(['update','destroy']);
+//Route::resource('/portfolio','ProjectController')->except(['update','destroy']);
