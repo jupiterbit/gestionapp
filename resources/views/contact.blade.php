@@ -5,7 +5,10 @@
 @section('content')
 <h1>{{__('Contact')}}</h1>   
 
+@if (session('status'))
+{{session('status')}}    
 
+@else
 <form method="POST" action="{{route('messages.store')}}">
     @csrf <!-- token para formularios: blade -->
     First name:<br>
@@ -22,5 +25,6 @@
     {!! $errors->first('content', '<small>:message</small><br>') !!} 
     <button type="submit">Enviar</button>
 </form>
+@endif
 
 @endsection

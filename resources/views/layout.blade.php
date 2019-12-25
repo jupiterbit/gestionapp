@@ -14,7 +14,10 @@
     </style>
 </head>
 <body>
-    @include('partials.nav')    
+    @include('partials.nav')   
+    <!-- mensaje de confirmacion de envio -->
+    @include('partials.sessions-status') 
+    
     @yield('content')
 </body>
 </html>
